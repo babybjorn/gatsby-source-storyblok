@@ -61,5 +61,6 @@
     "tabWidth": 2,
     "semi": true,
     "singleQuote": false
-  }
+  },
+  "packageManager": "yarn@4.9.2"
 }

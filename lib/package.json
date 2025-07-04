@@ -1,6 +1,6 @@
 {
-  "name": "gatsby-source-storyblok",
-  "version": "1.0.0",
+  "name": "@babybjorn/gatsby-source-storyblok",
+  "version": "0.0.0-development",
   "description": "SDK to integrate Storyblok into your project using Gatsby.",
   "main": "./dist/gatsby-source-storyblok.js",
   "module": "./dist/gatsby-source-storyblok.mjs",
@@ -72,20 +72,18 @@
   },
   "release": {
     "branches": [
-      "master"
+      "main"
     ]
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/storyblok/gatsby-source-storyblok"
+    "url": "https://github.com/babybjorn/gatsby-source-storyblok"
   },
   "author": "Storyblok",
-  "bugs": {
-    "url": "https://github.com/storyblok/gatsby-source-storyblok/issues"
-  },
-  "homepage": "https://github.com/storyblok/gatsby-source-storyblok",
   "publishConfig": {
-    "access": "public"
+    "registry": "https://npm.pkg.github.com",
+    "tag": "latest",
+    "access": "private"
   },
   "keywords": [
     "gatsby",
