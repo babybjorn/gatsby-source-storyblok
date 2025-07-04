@@ -11,17 +11,12 @@
     "forceConsistentCasingInFileNames": true,
     "declaration": true,
     "declarationDir": "dist/types",
-    "emitDeclarationOnly": true
+    "emitDeclarationOnly": true,
+    "types": ["node"]
   },
   "extends": "@tsconfig/recommended/tsconfig.json",
   "$schema": "https://json.schemastore.org/tsconfig",
   "display": "Recommended",
-  "include": [
-    "./index.ts",
-    "./story.tsx",
-    "./types.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["./index.ts", "./story.tsx", "./types.ts"],
+  "exclude": ["node_modules"]
 }
