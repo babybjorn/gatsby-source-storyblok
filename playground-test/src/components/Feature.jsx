@@ -1,5 +1,5 @@
+import { storyblokEditable } from "@babybjorn/gatsby-source-storyblok";
 import React from "react";
-import { storyblokEditable } from "gatsby-source-storyblok";
 
 const Feature = ({ blok }) => {
   return (

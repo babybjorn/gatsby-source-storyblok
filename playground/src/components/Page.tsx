@@ -1,5 +1,8 @@
+import {
+  StoryblokComponent,
+  storyblokEditable,
+} from "@babybjorn/gatsby-source-storyblok";
 import React from "react";
-import { storyblokEditable, StoryblokComponent } from "gatsby-source-storyblok";
 
 const Page = ({ blok }) => {
   return (
@@ -8,7 +11,7 @@ const Page = ({ blok }) => {
         <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
       ))}
     </main>
-  )
+  );
 };
 
 export default Page;

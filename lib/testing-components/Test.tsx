@@ -1,12 +1,11 @@
-import React from "react";
-import { useEffect } from "react";
 import {
-  storyblokInit,
   apiPlugin,
   getStoryblokApi,
-  useStoryblokBridge,
   StoryblokComponent,
-} from "gatsby-source-storyblok";
+  storyblokInit,
+  useStoryblokBridge,
+} from "@babybjorn/gatsby-source-storyblok";
+import React, { useEffect } from "react";
 
 const Test = ({ bridge, accessToken, components, blok }) => {
   storyblokInit({

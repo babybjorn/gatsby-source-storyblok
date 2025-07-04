@@ -1,7 +1,7 @@
-import * as React from "react";
 import { graphql } from "gatsby";
+import * as React from "react";
 
-import { StoryblokStory } from "gatsby-source-storyblok";
+import { StoryblokStory } from "@babybjorn/gatsby-source-storyblok";
 
 import Layout from "../components/layout";
 

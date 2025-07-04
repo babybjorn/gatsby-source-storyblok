@@ -1,8 +1,8 @@
-import { defineConfig } from "vite";
 import path from "path";
 import preserveDirectives from "rollup-plugin-preserve-directives";
+import { defineConfig } from "vite";
 
-const libName = "gatsby-source-storyblok";
+const libName = "@babybjorn/gatsby-source-storyblok";
 
 export default defineConfig(() => {
   return {

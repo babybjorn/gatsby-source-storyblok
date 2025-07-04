@@ -1,15 +1,21 @@
-"use client"
-import * as React from "react"
-import { graphql } from "gatsby"
+"use client";
+import { graphql } from "gatsby";
+import * as React from "react";
 
-import { StoryblokComponent, storyblokEditable, useStoryblokState } from "gatsby-source-storyblok"
+import {
+  StoryblokComponent,
+  storyblokEditable,
+  useStoryblokState,
+} from "@babybjorn/gatsby-source-storyblok";
 
-import Layout from "../components/layout"
+import Layout from "../components/layout";
 
 const IndexPage = ({ data }) => {
-  let story = useStoryblokState(data.storyblokEntry)
+  let story = useStoryblokState(data.storyblokEntry);
 
-  const components = story.content.body.map(blok => (<StoryblokComponent blok={blok} key={blok._uid} />))
+  const components = story.content.body.map((blok) => (
+    <StoryblokComponent blok={blok} key={blok._uid} />
+  ));
 
   return (
     <Layout>
@@ -18,10 +24,10 @@ const IndexPage = ({ data }) => {
         {components}
       </div>
     </Layout>
-  )
-}
+  );
+};
 
-export default IndexPage
+export default IndexPage;
 
 export const query = graphql`
   query HomeQuery {
@@ -34,4 +40,4 @@ export const query = graphql`
       internalId
     }
   }
-`
+`;

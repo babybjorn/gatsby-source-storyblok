@@ -5,15 +5,15 @@
  * See: https://www.gatsbyjs.com/docs/use-static-query/
  */
 
-import * as React from "react"
+import { apiPlugin, storyblokInit } from "@babybjorn/gatsby-source-storyblok"
 import PropTypes from "prop-types"
-import { storyblokInit, apiPlugin } from "gatsby-source-storyblok"
-import Teaser from './Teaser'
-import Grid from './Grid'
-import Feature from './Feature'
+import * as React from "react"
 import configuration from '../../gatsby-config'
+import Feature from './Feature'
+import Grid from './Grid'
+import Teaser from './Teaser'
 
-const sbConfig = configuration.plugins.find((item) => item.resolve === 'gatsby-source-storyblok')
+const sbConfig = configuration.plugins.find((item) => item.resolve === '@babybjorn/gatsby-source-storyblok')
 
 storyblokInit({
   accessToken: sbConfig.options.accessToken,

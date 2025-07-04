@@ -1,5 +1,5 @@
-import * as React from "react"
-import { storyblokEditable } from "gatsby-source-storyblok";
+import { storyblokEditable } from "@babybjorn/gatsby-source-storyblok";
+import * as React from "react";
 
 const Teaser = ({ blok }) => {
   return (

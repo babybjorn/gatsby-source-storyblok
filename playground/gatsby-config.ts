@@ -1,8 +1,8 @@
-import type { GatsbyConfig } from "gatsby"
+import type { GatsbyConfig } from "gatsby";
 
 const config: GatsbyConfig = {
   flags: {
-    PARTIAL_HYDRATION: true
+    PARTIAL_HYDRATION: true,
   },
   siteMetadata: {
     title: `test-v5`,
@@ -14,15 +14,15 @@ const config: GatsbyConfig = {
   graphqlTypegen: true,
   plugins: [
     {
-      resolve: 'gatsby-source-storyblok',
+      resolve: "@babybjorn/gatsby-source-storyblok",
       options: {
-        accessToken: 'OurklwV5XsDJTIE1NJaD2wtt',
-        version: 'draft',
+        accessToken: "OurklwV5XsDJTIE1NJaD2wtt",
+        version: "draft",
         localAssets: true,
         includeLinks: true,
-      }
+      },
     },
   ],
-}
+};
 
-export default config
+export default config;

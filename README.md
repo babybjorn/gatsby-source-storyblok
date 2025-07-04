@@ -16,7 +16,7 @@
 
 <p align="center">
   <a href="https://www.npmjs.com/package/gatsby-source-storyblok">
-    <img src="https://img.shields.io/npm/v/gatsby-source-storyblok/latest.svg?style=flat-square&color=09b3af" alt="gatsby-source-storyblok" />
+    <img src="https://img.shields.io/npm/v/gatsby-source-storyblok/latest.svg?style=flat-square&color=09b3af" alt="@babybjorn/gatsby-source-storyblok" />
   </a>
   <a href="https://www.npmjs.com/package/gatsby-source-storyblok" rel="nofollow">
     <img src="https://img.shields.io/npm/dt/gatsby-source-storyblok.svg?style=appveyor&color=09b3af" alt="npm">
@@ -71,7 +71,7 @@ const config: GatsbyConfig = {
   graphqlTypegen: true,
   plugins: [
     {
-      resolve: 'gatsby-source-storyblok',
+      resolve: '@babybjorn/gatsby-source-storyblok',
       options: {
         accessToken: '<your-access-token>',
         version: 'draft',
@@ -89,7 +89,7 @@ const config: GatsbyConfig = {
 "use client" // Required for Partial Hydration, client components (RSC)
 import configuration from '../../gatsby-config'
 
-const sbConfig = configuration.plugins.find((item) => item.resolve === 'gatsby-source-storyblok')
+const sbConfig = configuration.plugins.find((item) => item.resolve === '@babybjorn/gatsby-source-storyblok')
 
 storyblokInit({
   accessToken: sbConfig.options.accessToken,
@@ -151,7 +151,7 @@ Query data from GraphQL:
 `src/pages/index.tsx`
 
 ```js
-import { StoryblokStory } from "gatsby-source-storyblok";
+import { StoryblokStory } from "@babybjorn/gatsby-source-storyblok";
 
 import Layout from "../components/layout";
 
@@ -202,7 +202,7 @@ For every component you've defined in your Storyblok space, call the `storyblokE
 `src/components/Page.tsx`
 
 ```js
-import { storyblokEditable, StoryblokComponent } from "gatsby-source-storyblok";
+import { storyblokEditable, StoryblokComponent } from "@babybjorn/gatsby-source-storyblok";
 
 const Page = ({ blok }) => (
   <main {...storyblokEditable(blok)}>
@@ -218,7 +218,7 @@ export default Page;
 `src/components/Feature.jsx`
 
 ```js
-import { storyblokEditable } from "gatsby-source-storyblok";
+import { storyblokEditable } from "@babybjorn/gatsby-source-storyblok";
 
 const Feature = ({ blok }) => {
   return (
@@ -283,14 +283,14 @@ sbBridge.on(["input", "published", "change"], (event) => {
 You can easily render rich text by using the `renderRichText` function that comes with `gatsby-source-storyblok`:
 
 ```js
-import { renderRichText } from "gatsby-source-storyblok";
+import { renderRichText } from "@babybjorn/gatsby-source-storyblok";
 const renderedRichText = renderRichText(blok.richtext);
 ```
 
 You can set a **custom Schema and component resolver globally** at init time by using the `richText` init option:
 
 ```js
-import { RichTextSchema, storyblokInit } from "gatsby-source-storyblok";
+import { RichTextSchema, storyblokInit } from "@babybjorn/gatsby-source-storyblok";
 import cloneDeep from "clone-deep";
 const mySchema = cloneDeep(RichTextSchema); // you can make a copy of the default RichTextSchema
 // ... and edit the nodes and marks, or add your own.
@@ -314,7 +314,7 @@ storyblokInit({
 You can also set a **custom Schema and component resolver only once** by passing the options as the second parameter to `renderRichText` function:
 
 ```js
-import { renderRichText } from "gatsby-source-storyblok";
+import { renderRichText } from "@babybjorn/gatsby-source-storyblok";
 renderRichText(blok.richTextField, {
   schema: mySchema,
   resolver: (component, blok) => {
@@ -354,7 +354,7 @@ To define a component to act as a client component, use `"use client"` directive
 import configuration from "../../gatsby-config";
 
 const sbConfig = configuration.plugins.find(
-  (item) => item.resolve === "gatsby-source-storyblok"
+  (item) => item.resolve === "@babybjorn/gatsby-source-storyblok"
 );
 
 storyblokInit({
@@ -405,7 +405,7 @@ For more info regarding `createPages` see the Gatsby docs: [docs/reference/confi
 2a. You need to create a [template](https://www.gatsbyjs.org/docs/programmatically-create-pages-from-data/#specifying-a-template) file to get the data from GraphQL
 
 ```js
-import { StoryblokStory } from "gatsby-source-storyblok";
+import { StoryblokStory } from "@babybjorn/gatsby-source-storyblok";
 import Layout from "../components/layout";
 
 export default function StoryblokEntry({ data }) {
@@ -480,7 +480,7 @@ For more info regarding The File System Routes API see the Gatsby docs: [docs/re
 3b. Gatsby will use ths page template for each `storyblokEntry`
 
 ```js
-import { StoryblokStory } from "gatsby-source-storyblok";
+import { StoryblokStory } from "@babybjorn/gatsby-source-storyblok";
 
 import Layout from "../components/layout";
 
@@ -509,7 +509,7 @@ export const query = graphql`
 
 ```js
 {
-  resolve: 'gatsby-source-storyblok',
+  resolve: '@babybjorn/gatsby-source-storyblok',
   options: {
     accessToken: 'YOUR_TOKEN',
     version: 'draft',

@@ -8,13 +8,12 @@
     "./playground-test"
   ],
   "scripts": {
-    "dev": "npm run dev --workspace=lib & npm run demo",
-    "demo": "npm run develop --workspace=playground",
-    "build": "npm run build --workspace=lib",
-    "test:unit": "npm run test:unit --workspace=lib",
-    "test:e2e": "npm run test:e2e --workspace=lib",
-    "test:e2e-watch": "npm run test:e2e-watch --workspace=lib",
-    "prepare": "husky install"
+    "dev": "yarn workspace @babybjorn/gatsby-source-storyblok dev & yarn demo",
+    "demo": "yarn workspace playground develop",
+    "build": "yarn workspace @babybjorn/gatsby-source-storyblok build",
+    "test:unit": "yarn workspace @babybjorn/gatsby-source-storyblok test:unit",
+    "test:e2e": "yarn workspace @babybjorn/gatsby-source-storyblok test:e2e",
+    "test:e2e-watch": "yarn workspace @babybjorn/gatsby-source-storyblok test:e2e-watch"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.2.1",
@@ -22,7 +21,6 @@
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-react": "^7.34.1",
-    "husky": "^9.0.11",
     "lint-staged": "^15.2.2",
     "prettier": "^3.2.5"
   },
@@ -54,6 +52,12 @@
     "parserOptions": {
       "sourceType": "module",
       "ecmaVersion": 2022
+    },
+    "settings": {
+      "react": {
+        "version": "18",
+        "defaultVersion": "18"
+      }
     }
   },
   "prettier": {
