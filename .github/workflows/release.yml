@@ -1,10 +1,14 @@
 name: Release CI
 
+permissions:
+  contents: read
+  packages: write
+
 on:
   push:
-    branches: [master, feature/v4]
+    branches: [main]
   pull_request:
-    branches: [master, feature/v4]
+    branches: [main]
 
 jobs:
   release:
@@ -12,22 +16,25 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+
+      - name: Enable Corepack
+        run: corepack enable
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: "20"
-          cache: "npm"
+          cache: "yarn"
       - name: Install dependencies
-        run: npm ci
+        run: yarn install --frozen-lockfile
       - name: Build lib
-        run: npm run build
+        run: yarn build
       - name: Jest run
-        run: npm run test:unit
+        run: yarn test:unit
       - name: Cypress run
-        run: npm run test:e2e
+        run: yarn test:e2e
       - name: Release
         working-directory: lib
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npx semantic-release
