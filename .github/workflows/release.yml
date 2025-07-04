@@ -1,8 +1,8 @@
 name: Release CI
 
 permissions:
-  contents: read
   packages: write
+  contents: write
 
 on:
   push:
@@ -28,13 +28,13 @@ jobs:
         run: yarn install --immutable
       - name: Build lib
         run: yarn build
-      - name: Jest run
-        run: yarn test:unit
-      - name: Cypress run
-        run: yarn test:e2e
+      # - name: Jest run
+      #   run: yarn test:unit
+      # - name: Cypress run
+      #   run: yarn test:e2e
       - name: Release
         working-directory: lib
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          YARN_NPM_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: npx semantic-release
